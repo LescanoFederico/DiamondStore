@@ -3,29 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrarse</title>
     <link rel="stylesheet" href="Formulario.css">
 </head>
 <body>
-    <div class="main">
-        <form class="Formulario" onsubmit="window.location.href='../Inicio.html'; return false;">
-            <h2>Registrarse</h2>
-            
-                <label for="Nombre">Nombre:</label>
-                <input type="text" id="Nombre" required><br>
-                
-                <label for="Apellido">Apellido:</label>
-                <input type="text" id="Apellido" required><br>
-                
-                <label for="Correo">Correo electronico:</label>
-                <input type="Email" id="Correo" required><br>
-                
-                <label for="Contraseña">Contraseña:</label>
-                <input type="password" required><br>
 
-                <button type="submit" class="btn">Registrarse</button>
-        </form>
+<header>
+    <div class="Logo">
+        <a href="../Inicio.html">
+            <img src="../Imagenes/Diseño sin título_20250611_162735_0000.svg" 
+                 alt="Diamond" class="logo-img" width="100px" height="90px">
+        </a>
     </div>
-    
+
+    <div>
+        <a href="../Inicio.html">Inicio</a>
+        <a href="./Sesion.html">Iniciar Sesión</a>
+    </div>
+</header>
+
+<!-- ESTA ES LA ESTRUCTURA QUE TU CSS REQUIERE -->
+<main class="main">
+    <form class="Formulario" onsubmit="registrarUsuario(); return false;">
+        <h2>Registrarse</h2>
+
+        <input type="text" id="Nombre" placeholder="Nombre" required>
+        <input type="text" id="Apellido" placeholder="Apellido" required>
+        <input type="email" id="Correo" placeholder="Correo electrónico" required>
+        <input type="password" id="Contraseña" placeholder="Contraseña" required>
+
+        <button type="submit" class="btn">Registrarse</button>
+
+        <p>¿Ya tienes cuenta? <a href="../Index.html">Iniciar sesión</a></p>
+    </form>
+</main>
+
+<script>
+function registrarUsuario() {
+    const data = {
+        nombre: document.getElementById("Nombre").value,
+        apellido: document.getElementById("Apellido").value,
+        correo: document.getElementById("Correo").value,
+        contraseña: document.getElementById("Contraseña").value
+    };
+
+    fetch("../api_registro.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        if (res.status === "ok") {
+            alert("Registro exitoso ✔");
+            window.location.href = "Sesion.html";
+        } else {
+            alert("Error: " + res.msg);
+        }
+    })
+    .catch(() => alert("Error en el servidor"));
+}
+</script>
+
 </body>
 </html>

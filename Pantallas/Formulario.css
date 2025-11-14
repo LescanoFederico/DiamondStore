@@ -1,115 +1,73 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to right, #002244, #001a33);
-  font-family: Arial, sans-serif;
-  color: #FAFAFA;
-}
-a {
-  text-decoration: none;
-  color: #C8B560;
-  padding: 10px;
-  font-size: 22px;
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to right, #3B944D, #002244);
-  padding: 10px 20px;
-  width: 98%;
-  position: fixed;   /* Siempre arriba */
-  top: 0;
-  left: 0;
-  
-}
-
-.logo, img {
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-}
-
-/* Menu hamburguesa Cuenta */
-.menu-hamburguesa {
-    position: relative;
-}
-
-.boton-menu {
-    background-color: #C8B560;
-    border: none;
-    padding: 8px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #003300;
-}
-
-.menu-opciones {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background: #003300;
-    list-style: none;
-    padding: 10px;
+/* === RESETEO GENERAL === */
+* {
     margin: 0;
-    border-radius: 5px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.menu-opciones li {
-    padding: 8px 12px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #001a44; /* Azul oscuro */
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* IMPORTANTE: centra el formulario */
+}
+
+/* === CONTENEDOR DEL FORMULARIO === */
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+}
+
+/* Título */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #3B944D; /* Verde que usas en tu sitio */
+}
+
+/* Inputs */
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* Botón */
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #3B944D, #1E5128);
+    color: #fff;
+    font-size: 18px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.menu-opciones li:hover {
-    background: #004d00;
+.form-container button:hover {
+    opacity: 0.85;
 }
 
-
-
-/* Contenedor del formulario */
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;   /* Ocupa toda la pantalla */
-  padding-top: 60px;   /* Espacio para que no lo tape el header */
+/* Texto debajo del formulario */
+.form-container p {
+    text-align: center;
+    margin-top: 15px;
 }
 
-/* Caja del formulario */
-.Formulario {
-  align-items: center;
-  text-align: center;
-  background-color: #3B944D;
-  width: 300px;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.Formulario input {
-  width: 90%;
-  padding: 8px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.btn {
-  background-color: #002244;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-}
-
-.btn-iniciar:hover {
-  background-color: #2f703c;
+.form-container a {
+    color: #3B944D;
+    font-weight: bold;
+    text-decoration: none;
 }

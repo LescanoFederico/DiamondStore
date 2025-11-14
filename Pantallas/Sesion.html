@@ -3,57 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="Formulario.css">
 </head>
 <body>
-    <header>
-        <div class="Logo">
-            <a href="../Inicio.html">
-                <img src="../Imagenes/Diseño sin título_20250611_162735_0000.svg" alt="Diamond" class="logo-img" width="100px" height="90px">
-            </a>
-            
-        </div>
 
-            <div>
-                <a href="../Inicio.html">Inicio</a>
-                <a href="./Registro.html">Registrarse</a>
-            </div>
-            
-            <div class="menu-hamburguesa">
-                <button class="boton-menu" onclick="toggleMenu()">☰ Cuenta</button>
-                <ul class="menu-opciones" id="menuOpciones">
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Busqueda</a></li>
-                <li><a href="">Compra</a></li>
-                <li><a href="">Favorito</a></li>
-                <li><a href="">Mi cuenta</a></li>
-            </ul>
-            </div>
-    </header>
-        <script>
-            function toggleMenu() {
-                const menu = document.getElementById("menuOpciones");
-                menu.style.display = menu.style.display === "block" ? "none" : "block";
-                }
-        </script>
-        
-    <div class="main">
-        <div class="main">
-            <form class="Formulario" onsubmit="window.location.href='../Inicio.html'; return false;">
-                <h2>Iniciar Sesion</h2>
-
-                <label for="Correo">Correo electrónico:</label>
-                <input type="email" id="Correo" required><br>
-
-                <label for="Contrasena">Contraseña:</label>
-                <input type="password" id="Contrasena" required><br>
-
-                <button type="submit" class="btn">Iniciar Sesion</button>
-            </form>
-        </div>
+<header>
+    <div class="Logo">
+        <a href="../Inicio.html">
+            <img src="../Imagenes/Diseño sin título_20250611_162735_0000.svg" 
+                 alt="Diamond" class="logo-img" width="100px" height="90px">
+        </a>
     </div>
-        
- 
+
+    <div>
+        <a href="../Inicio.html">Inicio</a>
+        <a href="./Registro.html">Registrarse</a>
+    </div>
+</header>
+
+<main class="main">
+    <form class="Formulario" onsubmit="iniciarSesion(); return false;">
+        <h2>Iniciar Sesión</h2>
+
+        <input type="email" id="Correo" placeholder="Correo electrónico" required>
+        <input type="password" id="Contrasena" placeholder="Contraseña" required>
+
+        <button type="submit" class="btn">Ingresar</button>
+
+        <p>¿No tenés cuenta? <a href="./Registro.html">Registrarse</a></p>
+    </form>
+</main>
+
+<script>
+function iniciarSesion() {
+    const data = {
+        correo: document.getElementById("Correo").value,
+        contraseña: document.getElementById("Contrasena").value
+    };
+
+    fetch("../api_login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+        if (res.status === "ok") {
+            alert("Inicio de sesión exitoso ✔");
+            window.location.href = "../Index.html";
+        } else {
+            alert("Error: " + res.msg);
+        }
+    })
+    .catch(() => alert("Error en el servidor"));
+}
+</script>
+
 </body>
 </html>

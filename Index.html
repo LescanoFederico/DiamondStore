@@ -29,148 +29,115 @@
   </script>
 
   <div class="contenedor">
-    <div class="Articulos">
-      <div class="Nike">
-        <section>
-          <h1 class="Marca">Nike</h1>
-          <div class="caja" data-id="1">
-            <h1 class="Info">Phantom GX Men</h1>
-            <img src="./Imagenes/Botines Nike/Nike Phantom Gx Men.webp" alt="Nike Phantom Gx Men">
-            <p class="precio">$110.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="2">
-            <h1 class="Info">Phantom GX Men</h1>
-            <img src="./Imagenes/Botines Nike/OIP.webp" alt="Nike Phantom Gx Men">
-            <p class="precio">$105.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="3">
-            <h1 class="Info">Phantom GX Men</h1>
-            <img src="./Imagenes/Botines Nike/verdes.webp" alt="Nike Mercurial Vapor 15 men">
-            <p class="precio">$120.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-        </section>
-      </div>
-      
-      <div class="Joma">
-        <section>
-          <h1 class="Marca">Joma</h1>
-          <div class="caja" data-id="4">
-            <h1 class="Info">Joma IC Men</h1>
-            <img src="./Imagenes/Joma/Rojo.jpeg" alt="Joma IC">
-            <p class="precio">$80.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="5">
-            <h1 class="Info">Joma Galaxi Men</h1>
-            <img src="./Imagenes/Joma/d91d021b.jpeg" alt="Joma Galaxi">
-            <p class="precio">$70.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="6">
-            <h1 class="Info">Joma Future Men</h1>
-            <img src="./Imagenes/Joma/azul.jpeg" alt="Joma Future">
-            <p class="precio">$76.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-        </section>
-      </div>
-
-      <div class="Adidas">
-        <section>
-          <h1 class="Marca">Adidas</h1>
-          <div class="caja" data-id="7">
-            <h1 class="Info">Copa Pure 2 Men</h1>
-            <img src="./Imagenes/Adidas/bordo.webp" alt="Copa Pure">
-            <p class="precio">$89999</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="8">
-            <h1 class="Info">F50 League Men</h1>
-            <img src="./Imagenes/Adidas/7e931690.jpg" alt="F50 Red">
-            <p class="precio">$100.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="9">
-            <h1 class="Info">F50 League Men</h1>
-            <img src="./Imagenes/Adidas/f50.jpg" alt="F50 White">
-            <p class="precio">$130.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-        </section>
-      </div>
-
-      <div class="Puma">
-        <section>
-          <h1 class="Marca">Puma</h1>
-          <div class="caja" data-id="10">
-            <h1 class="Info">Ultra Men</h1>
-            <img src="./Imagenes/Puma/Ultra.webp" alt="Puma Ultra">
-            <p class="precio">$125.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="11">
-            <h1 class="Info">Future 8 Men</h1>
-            <img src="./Imagenes/Puma/Future.webp" alt="Future 8">
-            <p class="precio">$115.000</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-          <div class="caja" data-id="12">
-            <h1 class="Info">Future 8 Men</h1>
-            <img src="./Imagenes/Puma/Future Green.webp" alt="Future 8">
-            <p class="precio">$99.999</p>
-            <button class="carrito">Agregar al carrito</button>
-          </div>
-        </section>
-      </div>
-    </div>
+    <div class="Articulos"></div>
   </div>
 
+
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const botones = document.querySelectorAll(".carrito");
-      const contador = document.getElementById("contadorCarrito");
+document.addEventListener("DOMContentLoaded", () => {
 
-      function actualizarContador() {
-        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const total = carrito.reduce((acc, item) => acc + item.qty, 0);
-        contador.textContent = total;
-      }
+  const contenedorArticulos = document.querySelector(".Articulos");
 
-      function agregarAlCarrito(producto) {
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const existe = carrito.find(p => p.id === producto.id);
+  // ==============================
+  // 1. Cargar productos desde API
+  // ==============================
+  fetch("api.php")
+    .then(res => res.json())
+    .then(data => {
+      mostrarProductosPorMarca(data);
+    })
+    .catch(err => console.error("Error al cargar productos:", err));
 
-        if (existe) {
-          existe.qty += 1;
-        } else {
-          carrito.push(producto);
-        }
 
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        actualizarContador();
-      }
+  // =====================================
+  // 2. Ordenar y mostrar por marcas
+  // =====================================
+  function mostrarProductosPorMarca(productos) {
 
-      botones.forEach(btn => {
-        btn.addEventListener("click", e => {
-          const caja = e.target.closest(".caja");
-          const producto = {
-            id: caja.dataset.id,
-            nombre: caja.querySelector(".Info").textContent,
-            precio: parseFloat(caja.querySelector(".precio").textContent.replace("$", "").replace(".", "")),
-            img: caja.querySelector("img").src,
-            qty: 1
-          };
+    contenedorArticulos.innerHTML = "";
 
-          agregarAlCarrito(producto);
-          alert(`✅ ${producto.nombre} agregado al carrito.`);
-        });
+    // Agrupar por marca
+    const marcas = {};
+
+    productos.forEach(p => {
+      if (!marcas[p.marca]) marcas[p.marca] = [];
+      marcas[p.marca].push(p);
+    });
+
+    // Mostrar cada marca
+    for (const marca in marcas) {
+
+      // Crear sección por marca
+      const section = document.createElement("section");
+      section.innerHTML = `<h1 class="Marca">${marca}</h1>`;
+      
+      marcas[marca].forEach(prod => {
+        const caja = document.createElement("div");
+        caja.classList.add("caja");
+        caja.dataset.id = prod.id;
+
+        caja.innerHTML = `
+          <h1 class="Info">${prod.nombre}</h1>
+          <img src="${prod.imagen ? prod.imagen : "./Imagenes/default.png"}" alt="${prod.nombre}">
+          <p class="precio">$${prod.precio}</p>
+          <button class="carrito">Agregar al carrito</button>
+        `;
+
+        section.appendChild(caja);
       });
 
+      contenedorArticulos.appendChild(section);
+    }
+
+    activarBotonesCarrito();
+  }
+
+
+
+  // ===============================
+  // 3. SISTEMA DE CARRITO
+  // ===============================
+  function activarBotonesCarrito() {
+    const botones = document.querySelectorAll(".carrito");
+    const contador = document.getElementById("contadorCarrito");
+
+    function actualizarContador() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      contador.textContent = carrito.reduce((acc, item) => acc + item.qty, 0);
+    }
+
+    function agregarAlCarrito(producto) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const existe = carrito.find(p => p.id == producto.id);
+
+      if (existe) existe.qty++;
+      else carrito.push(producto);
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
       actualizarContador();
+    }
+
+    botones.forEach(btn => {
+      btn.addEventListener("click", e => {
+        const caja = e.target.closest(".caja");
+
+        const producto = {
+          id: caja.dataset.id,
+          nombre: caja.querySelector(".Info").textContent,
+          precio: parseFloat(caja.querySelector(".precio").textContent.replace("$", "")),
+          img: caja.querySelector("img").src,
+          qty: 1,
+        };
+
+        agregarAlCarrito(producto);
+        alert(`✅ ${producto.nombre} agregado al carrito.`);
+      });
     });
-  </script>
+
+    actualizarContador();
+  }
+
+});
+</script>
 </body>
 </html>
