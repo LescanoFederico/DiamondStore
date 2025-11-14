@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #002244, #001a33);
+  font-family: Arial, sans-serif;
+  color: #FAFAFA;
+}
+a {
+  text-decoration: none;
+  color: #C8B560;
+  padding: 10px;
+  font-size: 22px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #3B944D, #002244);
+  padding: 10px 20px;
+  width: 98%;
+  position: fixed;   /* Siempre arriba */
+  top: 0;
+  left: 0;
+  
+}
+
+.logo, img {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* Menu hamburguesa Cuenta */
+.menu-hamburguesa {
+    position: relative;
+}
+
+.boton-menu {
+    background-color: #C8B560;
+    border: none;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #003300;
+}
+
+.menu-opciones {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: #003300;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.menu-opciones li {
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-opciones li:hover {
+    background: #004d00;
+}
+
+
+
+/* Contenedor del formulario */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;   /* Ocupa toda la pantalla */
+  padding-top: 60px;   /* Espacio para que no lo tape el header */
+}
+
+/* Caja del formulario */
+.Formulario {
+  align-items: center;
+  text-align: center;
+  background-color: #3B944D;
+  width: 300px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.Formulario input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #002244;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.btn-iniciar:hover {
+  background-color: #2f703c;
+}

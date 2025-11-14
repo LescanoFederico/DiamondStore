@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Formulario.css">
+</head>
+<body>
+    <header>
+        <div class="Logo">
+            <a href="../Inicio.html">
+                <img src="../Imagenes/Diseño sin título_20250611_162735_0000.svg" alt="Diamond" class="logo-img" width="100px" height="90px">
+            </a>
+            
+        </div>
+
+            <div>
+                <a href="../Inicio.html">Inicio</a>
+                <a href="./Registro.html">Registrarse</a>
+            </div>
+            
+            <div class="menu-hamburguesa">
+                <button class="boton-menu" onclick="toggleMenu()">☰ Cuenta</button>
+                <ul class="menu-opciones" id="menuOpciones">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Busqueda</a></li>
+                <li><a href="">Compra</a></li>
+                <li><a href="">Favorito</a></li>
+                <li><a href="">Mi cuenta</a></li>
+            </ul>
+            </div>
+    </header>
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById("menuOpciones");
+                menu.style.display = menu.style.display === "block" ? "none" : "block";
+                }
+        </script>
+        
+    <div class="main">
+        <div class="main">
+            <form class="Formulario" onsubmit="window.location.href='../Inicio.html'; return false;">
+                <h2>Iniciar Sesion</h2>
+
+                <label for="Correo">Correo electrónico:</label>
+                <input type="email" id="Correo" required><br>
+
+                <label for="Contrasena">Contraseña:</label>
+                <input type="password" id="Contrasena" required><br>
+
+                <button type="submit" class="btn">Iniciar Sesion</button>
+            </form>
+        </div>
+    </div>
+        
+ 
+</body>
+</html>
