@@ -1,0 +1,145 @@
+/* === ESTILOS GENERALES === */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #001a44;
+  margin: 0;
+  padding: 0;
+}
+
+/* === HEADER === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #3B944D, #002244);
+    padding: 10px 20px;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+}
+
+header a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #C8B560;
+    font-weight: bold;
+}
+
+/* === TITULO === */
+h1 {
+    text-align: center;
+    color: #C8B560;
+    margin-top: 30px;
+}
+
+/* === CONTENEDOR DEL CARRITO === */
+#carritoContainer {
+    width: 90%;
+    color: #C8B560;
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #000022;
+    border: 2px solid #003300;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.item-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #001a44;
+    border: 1px solid #3B944D;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.item-carrito img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.info-carrito {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.info-carrito h3 {
+    color: #C8B560;
+    margin: 5px 0;
+}
+
+.info-carrito p {
+    margin: 3px 0;
+}
+
+
+
+/* === CONTENEDOR TOTAL === */
+#totalContainer {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+    background: #000022;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #003300;
+}
+
+#totalContainer h2 {
+    color: #ffcc00;
+    margin-bottom: 15px;
+}
+
+/* === BOTONES PRINCIPALES === */
+#vaciarCarrito,
+#comprar {
+    background: #3B944D;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+#vaciarCarrito:hover {
+    background: #267a39;
+}
+
+#comprar {
+    background: #C8B560;
+    color: #003300;
+}
+
+#comprar:hover {
+    background: #e6c85c;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .item-carrito {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-carrito {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    #totalContainer {
+        font-size: 14px;
+    }
+}

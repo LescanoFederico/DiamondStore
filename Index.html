@@ -1,141 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Botines</title>
+  <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    <header>
-        <div class="Logo">
-            <img src="./Imagenes/Diseño sin título_20250611_162735_0000.svg" alt="Diamond" class="logo-img" width="100px" height="90px">
-        </div>
+  <header>
+    <div class="Logo">
+      <img src="./Imagenes/Diseño sin título_20250611_162735_0000.svg" alt="Diamond" class="logo-img" width="100px" height="90px">
+    </div>
 
-        <div>
-            <a href="./Pantallas/Sesion.html">Iniciar Sesion</a>
-            <a href="./Pantallas/Registro.html">Registrarse</a>
-            <a href="./Pantallas/Carrito.html">Carrito</a>
-        </div>
-            
-        <div class="menu-hamburguesa">
-            <button class="boton-menu" onclick="toggleMenu()">☰ Cuenta</button>
-             <ul class="menu-opciones" id="menuOpciones">
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Busqueda</a></li>
-                <li><a href="">Compra</a></li>
-                <li><a href="">Favorito</a></li>
-                <li><a href="">Mi cuenta</a></li>
-            </ul>
-        </div>
-    </header>
-        <script>
-            function toggleMenu() {
-                const menu = document.getElementById("menuOpciones");
-                menu.style.display = menu.style.display === "block" ? "none" : "block";
-                }
-        </script>
-
-    <div class="contenedor">
-        <div class="Articulos">
-                    <div class="Nike">
-                        <section>
-                            <h1 class="Marca">Nike</h1>
-                            <div class="caja">
-                                <h1 class="Info">Phantom GX Men</h1>
-                                <img src="./Imagenes/Botines Nike/Nike Phantom Gx Men.webp" alt="Nike Phantom Gx Men" >
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">Phantom GX Men</h1>
-                                <img src="./Imagenes/Botines Nike/OIP.webp" alt="Nike Phantom Gx Men" >
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">Phantom GX Men</h1>
-                                <img src="./Imagenes/Botines Nike/verdes.webp" alt="Nike Mercurial Vapor 15 men">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                        </section>
-                    </div>
-                
-                    <div class="Joma">
-                        <section>
-                            <h1 class="Marca">Joma</h1>
-                            <div class="caja">
-                                <h1 class="Info">Joma IC Men</h1>
-                                <img src="./Imagenes/Joma/Rojo.jpeg" alt="Joma IC">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">Joma Galaxi Men</h1>
-                                <img src="./Imagenes/Joma/d91d021b.jpeg" alt="Joma Galaxi">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">Joma Future Men</h1>
-                                <img src="./Imagenes/Joma/azul.jpeg" alt="Joma Future">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="Adidas">
-                        <section>
-                            <h1 class="Marca">Adidas</h1>
-                            <div class="caja">
-                                <h1 class="Info">Copa Pure 2 Men</h1>
-                                <img src="./Imagenes/Adidas/bordo.webp" alt="Copa Pure">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">F50 League Men</h1>
-                                <img src="./Imagenes/Adidas/7e931690.jpg" alt="F50 Red">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">F50 League Men</h1>
-                                <img src="./Imagenes/Adidas/f50.jpg" alt="F50 White">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="Puma">
-                        <section>
-                            <h1 class="Marca">Puma</h1>
-                            <div class="caja">
-                                <h1 class="Info">Ultra Men</h1>
-                                <img src="./Imagenes/Puma/Ultra.webp" alt="Puma Ultra">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">Future 8 Men</h1>
-                                <img src="./Imagenes/Puma/Future.webp" alt="Future 8">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                            <div class="caja">
-                                <h1 class="Info">Future 8 Men</h1>
-                                <img src="./Imagenes/Puma/Future Green.webp" alt="Future 8">
-                                <p class="precio">$89.999</p>
-                                <button class="carrito">Agregar al carrito</button>
-                            </div>
-                        </section>
-                    </div>
-            </div>
+    <div>
+      <a href="./Pantallas/Sesion.html">Iniciar Sesión</a>
+      <a href="./Pantallas/Registro.html">Registrarse</a>
+      <a href="./Pantallas/Carrito.html" id="carritoLink">Carrito (<span id="contadorCarrito">0</span>)</a>
     </div>
         
+    
+  </header>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menuOpciones");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+  <div class="contenedor">
+    <div class="Articulos">
+      <div class="Nike">
+        <section>
+          <h1 class="Marca">Nike</h1>
+          <div class="caja" data-id="1">
+            <h1 class="Info">Phantom GX Men</h1>
+            <img src="./Imagenes/Botines Nike/Nike Phantom Gx Men.webp" alt="Nike Phantom Gx Men">
+            <p class="precio">$110.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="2">
+            <h1 class="Info">Phantom GX Men</h1>
+            <img src="./Imagenes/Botines Nike/OIP.webp" alt="Nike Phantom Gx Men">
+            <p class="precio">$105.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="3">
+            <h1 class="Info">Phantom GX Men</h1>
+            <img src="./Imagenes/Botines Nike/verdes.webp" alt="Nike Mercurial Vapor 15 men">
+            <p class="precio">$120.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+        </section>
+      </div>
+      
+      <div class="Joma">
+        <section>
+          <h1 class="Marca">Joma</h1>
+          <div class="caja" data-id="4">
+            <h1 class="Info">Joma IC Men</h1>
+            <img src="./Imagenes/Joma/Rojo.jpeg" alt="Joma IC">
+            <p class="precio">$80.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="5">
+            <h1 class="Info">Joma Galaxi Men</h1>
+            <img src="./Imagenes/Joma/d91d021b.jpeg" alt="Joma Galaxi">
+            <p class="precio">$70.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="6">
+            <h1 class="Info">Joma Future Men</h1>
+            <img src="./Imagenes/Joma/azul.jpeg" alt="Joma Future">
+            <p class="precio">$76.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="Adidas">
+        <section>
+          <h1 class="Marca">Adidas</h1>
+          <div class="caja" data-id="7">
+            <h1 class="Info">Copa Pure 2 Men</h1>
+            <img src="./Imagenes/Adidas/bordo.webp" alt="Copa Pure">
+            <p class="precio">$89999</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="8">
+            <h1 class="Info">F50 League Men</h1>
+            <img src="./Imagenes/Adidas/7e931690.jpg" alt="F50 Red">
+            <p class="precio">$100.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="9">
+            <h1 class="Info">F50 League Men</h1>
+            <img src="./Imagenes/Adidas/f50.jpg" alt="F50 White">
+            <p class="precio">$130.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="Puma">
+        <section>
+          <h1 class="Marca">Puma</h1>
+          <div class="caja" data-id="10">
+            <h1 class="Info">Ultra Men</h1>
+            <img src="./Imagenes/Puma/Ultra.webp" alt="Puma Ultra">
+            <p class="precio">$125.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="11">
+            <h1 class="Info">Future 8 Men</h1>
+            <img src="./Imagenes/Puma/Future.webp" alt="Future 8">
+            <p class="precio">$115.000</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+          <div class="caja" data-id="12">
+            <h1 class="Info">Future 8 Men</h1>
+            <img src="./Imagenes/Puma/Future Green.webp" alt="Future 8">
+            <p class="precio">$99.999</p>
+            <button class="carrito">Agregar al carrito</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const botones = document.querySelectorAll(".carrito");
+      const contador = document.getElementById("contadorCarrito");
+
+      function actualizarContador() {
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const total = carrito.reduce((acc, item) => acc + item.qty, 0);
+        contador.textContent = total;
+      }
+
+      function agregarAlCarrito(producto) {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const existe = carrito.find(p => p.id === producto.id);
+
+        if (existe) {
+          existe.qty += 1;
+        } else {
+          carrito.push(producto);
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarContador();
+      }
+
+      botones.forEach(btn => {
+        btn.addEventListener("click", e => {
+          const caja = e.target.closest(".caja");
+          const producto = {
+            id: caja.dataset.id,
+            nombre: caja.querySelector(".Info").textContent,
+            precio: parseFloat(caja.querySelector(".precio").textContent.replace("$", "").replace(".", "")),
+            img: caja.querySelector("img").src,
+            qty: 1
+          };
+
+          agregarAlCarrito(producto);
+          alert(`✅ ${producto.nombre} agregado al carrito.`);
+        });
+      });
+
+      actualizarContador();
+    });
+  </script>
 </body>
 </html>
