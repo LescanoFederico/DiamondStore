@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnVaciar = document.getElementById("vaciarCarrito");
   const btnComprar = document.getElementById("comprar");
 
-  // --- Cargar productos ---
+  //Cargar productos
   function cargarCarrito() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
     contador.textContent = cantidadTotal;
   }
 
-  // --- Vaciar carrito ---
+  //Vaciar carrito
   btnVaciar.addEventListener("click", () => {
     localStorage.removeItem("carrito");
     cargarCarrito();
   });
 
-  // --- Simular compra ---
+  //Simular compra
   btnComprar.addEventListener("click", () => {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     if (carrito.length === 0) {

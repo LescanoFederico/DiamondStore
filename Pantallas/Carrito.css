@@ -1,4 +1,3 @@
-/* === ESTILOS GENERALES === */
 body {
   font-family: Arial, sans-serif;
   background-color: #001a44;
@@ -6,7 +5,6 @@ body {
   padding: 0;
 }
 
-/* === HEADER === */
 header {
     display: flex;
     justify-content: space-between;
@@ -27,14 +25,14 @@ header a {
     font-weight: bold;
 }
 
-/* === TITULO === */
+/*TITULO*/
 h1 {
     text-align: center;
     color: #C8B560;
     margin-top: 30px;
 }
 
-/* === CONTENEDOR DEL CARRITO === */
+/*CONTENEDOR DEL CARRITO*/
 #carritoContainer {
     width: 90%;
     color: #C8B560;
@@ -79,9 +77,6 @@ h1 {
     margin: 3px 0;
 }
 
-
-
-/* === CONTENEDOR TOTAL === */
 #totalContainer {
     width: 90%;
     max-width: 1000px;
@@ -98,7 +93,6 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* === BOTONES PRINCIPALES === */
 #vaciarCarrito,
 #comprar {
     background: #3B944D;
@@ -126,7 +120,7 @@ h1 {
     background: #e6c85c;
 }
 
-/* === RESPONSIVE === */
+/*RESPONSIVE*/
 @media (max-width: 768px) {
     .item-carrito {
         flex-direction: column;

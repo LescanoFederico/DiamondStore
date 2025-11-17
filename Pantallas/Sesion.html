@@ -36,28 +36,28 @@
 </main>
 
 <script>
-function iniciarSesion() {
-    const data = {
-        correo: document.getElementById("Correo").value,
-        contraseña: document.getElementById("Contrasena").value
-    };
+    function iniciarSesion() {
+        const data = {
+            correo: document.getElementById("Correo").value,
+            contraseña: document.getElementById("Contrasena").value
+        };
 
-    fetch("../api_login.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-        if (res.status === "ok") {
-            alert("Inicio de sesión exitoso ✔");
-            window.location.href = "../Index.html";
-        } else {
-            alert("Error: " + res.msg);
-        }
-    })
-    .catch(() => alert("Error en el servidor"));
-}
+        fetch("../api_login.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.status === "ok") {
+                alert("Inicio de sesión exitoso ✔");
+                window.location.href = "../Index.html";
+            } else {
+                alert("Error: " + res.msg);
+            }
+        })
+        .catch(() => alert("Error en el servidor"));
+    }
 </script>
 
 </body>

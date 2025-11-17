@@ -10,19 +10,17 @@
 
 <header>
     <div class="Logo">
-        <a href="../Inicio.html">
+        <a href="../Index.html">
             <img src="../Imagenes/Diseño sin título_20250611_162735_0000.svg" 
                  alt="Diamond" class="logo-img" width="100px" height="90px">
         </a>
     </div>
-
     <div>
         <a href="../Inicio.html">Inicio</a>
         <a href="./Sesion.html">Iniciar Sesión</a>
     </div>
 </header>
 
-<!-- ESTA ES LA ESTRUCTURA QUE TU CSS REQUIERE -->
 <main class="main">
     <form class="Formulario" onsubmit="registrarUsuario(); return false;">
         <h2>Registrarse</h2>
@@ -34,35 +32,35 @@
 
         <button type="submit" class="btn">Registrarse</button>
 
-        <p>¿Ya tienes cuenta? <a href="../Index.html">Iniciar sesión</a></p>
+        <p>¿Ya tienes cuenta? <a href="./Sesion.html">Iniciar sesión</a></p>
     </form>
 </main>
 
 <script>
-function registrarUsuario() {
-    const data = {
-        nombre: document.getElementById("Nombre").value,
-        apellido: document.getElementById("Apellido").value,
-        correo: document.getElementById("Correo").value,
-        contraseña: document.getElementById("Contraseña").value
-    };
+    function registrarUsuario() {
+        const data = {
+            nombre: document.getElementById("Nombre").value,
+            apellido: document.getElementById("Apellido").value,
+            correo: document.getElementById("Correo").value,
+            contraseña: document.getElementById("Contraseña").value
+        };
 
-    fetch("../api_registro.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => {
-        if (res.status === "ok") {
-            alert("Registro exitoso ✔");
-            window.location.href = "Sesion.html";
-        } else {
-            alert("Error: " + res.msg);
-        }
-    })
-    .catch(() => alert("Error en el servidor"));
-}
+        fetch("../api_registro.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.status === "ok") {
+                alert("Registro exitoso ✔");
+                window.location.href = "Sesion.html";
+            } else {
+                alert("Error: " + res.msg);
+            }
+        })
+        .catch(() => alert("Error en el servidor"));
+    }
 </script>
 
 </body>
