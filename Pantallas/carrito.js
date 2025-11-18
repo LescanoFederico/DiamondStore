@@ -49,8 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarCarrito();
   });
 
-  //Simular compra
+  // Comprar
   btnComprar.addEventListener("click", () => {
+
+    // 🔐 VALIDACIÓN DE SESIÓN (AGREGADO)
+    const usuarioLogueado = localStorage.getItem("userLogged");
+    if (!usuarioLogueado) {
+      alert("Debes iniciar sesión para realizar la compra.");
+      window.location.href = "../Pantallas/Sesion.html"; 
+      return;
+    }
+    // 🔐 FIN DE LA VALIDACIÓN
+
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     if (carrito.length === 0) {
       alert("Tu carrito está vacío 🛒");
@@ -63,4 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cargarCarrito();
 });
+
 
